@@ -1,0 +1,96 @@
+/*selektor uniwerslany łapie wszystkie elementy na stronie * */
+/*margin 0 dla * bo body ma ustawione marginesy na starcie!*/
+* {
+    font-size: 22px;
+    margin: 0;
+}
+
+/*selektor znacznika łapie wszystkie określone znaczniki na stronie*/
+p {
+    font-size: 16px;
+}
+
+/*selektor elementu jest silniejszy niż element uniwersalny*/
+
+/*selektor identyfikatora łapie element o określonym atrybucie id */
+#universal {
+    background-color: gray;
+}
+/*selektor klasy łapie elementy o określonym atrybucie class*/
+.class-selector {
+    background-color: beige;
+}
+
+/*możemy łączyć selektor identyfikatora z selektorem klasy*/
+/*poniżej - id universal I klasie blue (bez spacji), bo jak spacja - to potomek ID o klasie*/
+#universal.blue {
+    background-color: blue; 
+}
+
+/*selektor bezpośredniego potomka łapie elementy zagnieżdżone BEZPOŚREDNIO w elemencie*/
+.potomek > p {
+    font-size: 30px;
+    text-align: center;
+}
+
+/*selektor potomka (ze spacją) łapie wszystkie zagnieżdżone elementy*/
+.potomek p {
+    font-size: 20px;
+}
+
+/*selektor bezpośredniego rodzeństwa (znak +) łapie PIERWSZE WYSTĄPIENIE selektora na TYM SAMYM poziomie zagnieżdżenia*/
+
+.bezposrednie-rodzenstwo h2 + p {
+    color: violet;
+}
+
+/*selektor rodzeństwa (znak ~) złapie WSZYSTKIE WYSTĄPIENIA selektora na TYM SAMYM poziomie zagnieżdżenia*/
+
+.bezposrednie-rodzenstwo h2 ~ p {
+    color: red;
+}
+
+/*(można sprawdzić działanie zaznaczając początek danych reguł selektorów jak komentarz)*/
+
+/*pozycjonowanie elementów*/
+#pozycjonowanie {
+    height: 400px;
+    background-color: green;
+    position: relative;
+}
+
+/*pozycja relatywna zchowuje miejsce elementu, odsuwa element od elementu nadrzędnego;*/
+
+/*element pozycjonowany ABSOLUTNIE ustawia sięwzględem elementu nadrzędnego, który jest pozycjonowany RELATYWNIE. Jeżeli element nadrzędny nie jest pozycjonowany RELATYWNIE, to zawsze będzie ustawiał się ABSOLUTINIE względem elementu BODY. Dodatkowo, element pozycjonowany ABSOLUTNIE, NIE ZACHOWUJE MIEJSCA. Zachowuje się, jakby go stamtąd wyciągnąć */
+
+/*jeżeli zmieniamy elementowi blokowemu właściwość position na absolute lub fixed, to musimy pamiętać o tym, aby taki blok rozciągnąć ponowanie na 100% szerokości;*/
+#pozycjonowanie .red {
+    background-color: red;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+#pozycjonowanie .blue {
+    background-color: blue;
+}
+
+#pozycjonowanie .inner p {
+    margin: 0;
+    color: white;
+}
+
+/*Jeżeli ustawiamy pozycję fixed, to ustawiamy element względem okna przeglądarki, dodatkowo należy pamiętać, aby ustawić top:0 i left: 0 (przykleić do górnego i lewego boku okna przeglądarki) i rozciągnąć element na 100% szerokości*/
+
+#main-nav {
+    background-color: aquamarine;
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    z-index: 1;
+}
+
+#main-nav ul {
+    margin: 0;
+}
